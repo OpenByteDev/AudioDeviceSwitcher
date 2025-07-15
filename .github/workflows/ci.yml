@@ -31,12 +31,12 @@ jobs:
     - name: Package the plugin
       uses: neilenns/streamdeck-cli-pack@v1
       with:
-        path: "./Plugin/bin/Release/net8.0-windows"
+        path: ./AudioDeviceSwitcher/Plugin/bin/Release/net8.0-windows
           
     - name: Upload .streamDeckPlugin artifact
       if: matrix.configuration == 'Release'
       uses: actions/upload-artifact@v4
       with:
         name: com.openbyte.audiodeviceswitcher.streamDeckPlugin
-        path: ./Plugin/bin/Release
+        path: ./AudioDeviceSwitcher/Plugin/bin/Release
         
