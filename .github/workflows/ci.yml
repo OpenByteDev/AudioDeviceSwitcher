@@ -29,7 +29,7 @@ jobs:
       run: dotnet build --no-restore --configuration ${{ matrix.configuration }}
     
     - name: Install Node.JS
-    - uses: actions/setup-node@v4
+      uses: actions/setup-node@v4
     
     - name: Install Stream Deck CLI
       run: npm install -g @elgato/cli@latest
