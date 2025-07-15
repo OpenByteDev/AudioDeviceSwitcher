@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8" />
+    <script src="sdpi-components.js"></script>
+</head>
+
+<body>
+    <sdpi-item label="Type">
+        <sdpi-select
+            setting="deviceType"
+            placeholder="Please select">
+            <option value="Render" default>Output</option>
+            <option value="Capture">Input</option>
+            <option value="All">All</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="First Device">
+        <sdpi-select
+            setting="firstDevice"
+            datasource="getDevices"
+            loading="Fetching devices..."
+            placeholder="Please select"
+            show-refresh="true">
+        </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Second Device">
+        <sdpi-select
+            setting="secondDevice"
+            datasource="getDevices"
+            loading="Fetching devices..."
+            placeholder="Please select"
+            show-refresh="true">
+        </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Third Device">
+        <sdpi-select
+            setting="thirdDevice"
+            datasource="getDevices"
+            loading="Fetching devices..."
+            placeholder="Please select"
+            show-refresh="true"
+            hot-reload="true">
+        </sdpi-select>
+    </sdpi-item>
+</body>
+
+</html>

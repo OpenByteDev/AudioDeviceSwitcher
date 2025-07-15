@@ -1,0 +1,95 @@
+{
+  "SDKVersion": 2,
+  "Author": "OpenByte",
+  "Name": "Audio Device Switcher",
+  "Description": "Lets you quickly switch between multiple audio input or output devices.",
+  "Icon": "Images/volume",
+  "URL": "https://github.com/OpenByteDev",
+  "Version": "0.1",
+  "Category": "Audio",
+  "CategoryIcon": "Images/tune",
+  "CodePath": "Plugin.exe",
+  "Actions": [
+    {
+      "Icon": "Images/toggle_on",
+      "Name": "Toggle Device",
+      "States": [
+        {
+          "Name": "Disabled",
+          "Image": "Images/volume_off"
+        },
+        {
+          "Name": "Active",
+          "Image": "Images/volume_up"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Disable or activate an audio device.",
+      "UUID": "com.openbyte.audiodeviceswitcher.toggle",
+      "PropertyInspectorPath": "PropertyInspector/toggle.html"
+    },
+    {
+      "Icon": "Images/cached",
+      "Name": "Cycle 2 Devices",
+      "States": [
+        {
+          "Name": "First",
+          "Image": "Images/headphones"
+        },
+        {
+          "Name": "Second",
+          "Image": "Images/speaker"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Switches the active audio device between two devices.",
+      "UUID": "com.openbyte.audiodeviceswitcher.cycle2",
+      "PropertyInspectorPath": "PropertyInspector/cycle2.html"
+    },
+    {
+      "Icon": "Images/cycle",
+      "Name": "Cycle 3 Devices",
+      "States": [
+        {
+          "Name": "First",
+          "Image": "Images/headphones"
+        },
+        {
+          "Name": "Second",
+          "Image": "Images/speaker"
+        },
+        {
+          "Name": "Third",
+          "Image": "Images/display"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Switches the active audio device between three devices.",
+      "UUID": "com.openbyte.audiodeviceswitcher.cycle3",
+      "PropertyInspectorPath": "PropertyInspector/cycle3.html"
+    },
+    {
+      "Icon": "Images/volume_off",
+      "Name": "Disable All",
+      "States": [
+        {
+          "Name": "First",
+          "Image": "Images/volume_off"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Disables all audio devices of the given type.",
+      "UUID": "com.openbyte.audiodeviceswitcher.disable-all",
+      "PropertyInspectorPath": "PropertyInspector/disable-all.html"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "4.1"
+  },
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ]
+}
