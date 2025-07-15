@@ -11,11 +11,7 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug, Release]
-
     runs-on: windows-latest
-
-    env:
-      Solution_Name: AudioDeviceSwitcher.sln
 
     steps:
     - name: Checkout
@@ -40,7 +36,7 @@ jobs:
           
     - name: Upload .streamDeckPlugin artifact
       if: matrix.configuration == 'Release'
-      uses: actions/upload-artifact@v1.0.0
+      uses: actions/upload-artifact@v4
       with:
         name: com.openbyte.audiodeviceswitcher.streamDeckPlugin
         path: ./Plugin/bin/Release
