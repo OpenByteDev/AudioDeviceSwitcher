@@ -30,16 +30,20 @@ jobs:
 
     - run: pwd
     - run: ls
+    - run: ls ./Plugin
+    - run: ls ./Plugin/bin
+    - run: ls ./Plugin/bin/{{matrix.configuration}}
+    - run: ls ./Plugin/bin/{{matrix.configuration}}/net8.0-windows
       
     - name: Package the plugin
       uses: neilenns/streamdeck-cli-pack@v1
       with:
-        path: ./AudioDeviceSwitcher/Plugin/bin/Release/net8.0-windows
+        path: ./Plugin/bin/{{matrix.configuration}}/net8.0-windows
           
     - name: Upload .streamDeckPlugin artifact
       if: matrix.configuration == 'Release'
       uses: actions/upload-artifact@v4
       with:
         name: com.openbyte.audiodeviceswitcher.streamDeckPlugin
-        path: ./AudioDeviceSwitcher/Plugin/bin/Release
+        path: ./AudioDeviceSwitcher/Plugin/bin/{{matrix.configuration}}
         
