@@ -29,10 +29,9 @@ jobs:
       run: dotnet build --no-restore
       
     - name: Package the plugin
-      uses: SantiMA10/streamdeck-action@v0.0.1
+      uses: neilenns/streamdeck-cli-pack@v1
       with:
-        input-directory: "./Plugin/bin/Release/net8.0-windows"
-        output-directory: "./Plugin/bin/Release"
+        path: "./Plugin/bin/Release/net8.0-windows"
           
     - name: Upload .streamDeckPlugin artifact
       if: matrix.configuration == 'Release'
