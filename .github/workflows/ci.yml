@@ -35,7 +35,9 @@ jobs:
       run: npm install -g @elgato/cli@latest
       
     - name: Prepare for packaging
-      run: cp ./Plugin/bin/${{ matrix.configuration }}/net8.0-windows ./com.openbyte.audiodeviceswitcher.sdPlugin
+      run: |
+        mkdir -p com.openbyte.audiodeviceswitcher.sdPlugin
+        cp -r ./Plugin/bin/${{ matrix.configuration }}/net8.0-windows/* ./com.openbyte.audiodeviceswitcher.sdPlugin/
         
     - name: Package the plugin
       uses: neilenns/streamdeck-cli-pack@v1
