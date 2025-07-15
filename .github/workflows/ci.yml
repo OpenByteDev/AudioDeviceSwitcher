@@ -27,6 +27,9 @@ jobs:
 
     - name: Build
       run: dotnet build --no-restore
+
+    - run: pwd
+    - run: ls -la
       
     - name: Package the plugin
       uses: neilenns/streamdeck-cli-pack@v1
