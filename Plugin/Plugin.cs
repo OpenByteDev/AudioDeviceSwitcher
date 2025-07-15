@@ -3,8 +3,6 @@ using NAudio.CoreAudioApi;
 using Newtonsoft.Json.Linq;
 using streamdeck_client_csharp;
 using streamdeck_client_csharp.Events;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Plugin {
     public class Plugin {
