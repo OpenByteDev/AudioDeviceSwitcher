@@ -27,23 +27,43 @@ jobs:
 
     - name: Build
       run: dotnet build --no-restore --configuration ${{ matrix.configuration }}
-    
-    - name: Install Node.JS
-      uses: actions/setup-node@v4
-    
-    - name: Install Stream Deck CLI
-      run: npm install -g @elgato/cli@latest
-      
-    - name: Prepare for packaging
-      run: |
-        mkdir -p com.openbyte.audiodeviceswitcher.sdPlugin
-        cp -r ./Plugin/bin/${{ matrix.configuration }}/net8.0-windows/* ./com.openbyte.audiodeviceswitcher.sdPlugin/
-        
-    - name: Package the plugin
-      uses: neilenns/streamdeck-cli-pack@v1
-          
-    - name: Upload plugin
+
+    - name: Upload Artifacts
       if: matrix.configuration == 'Release'
       uses: actions/upload-artifact@v4
       with:
-        name: com.openbyte.audiodeviceswitcher.streamDeckPlugin
+        name: plugin-release-binaries
+        path: ./Plugin/bin/Release/net8.0-windows
+
+  release:
+    needs: build
+    if: github.ref_type == 'tag'
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Download Release Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: plugin-release-binaries
+        path: ./com.openbyte.audiodeviceswitcher.sdPlugin
+
+    - name: Install Node.JS
+      uses: actions/setup-node@v4
+
+    - name: Install Stream Deck CLI
+      run: npm install -g @elgato/cli@latest
+
+    - name: Package the plugin
+      uses: neilenns/streamdeck-cli-pack@v1
+      with:
+        plugin-directory: com.openbyte.audiodeviceswitcher.sdPlugin
+
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: com.openbyte.audiodeviceswitcher.streamDeckPlugin
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
