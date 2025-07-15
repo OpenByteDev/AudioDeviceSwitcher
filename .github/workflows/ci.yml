@@ -34,14 +34,14 @@ jobs:
     - name: Install Stream Deck CLI
       run: npm install -g @elgato/cli@latest
       
+    - name: Prepare for packaging
+      run: cp ./Plugin/bin/${{ matrix.configuration }}/net8.0-windows ./com.openbyte.audiodeviceswitcher.sdPlugin
+        
     - name: Package the plugin
       uses: neilenns/streamdeck-cli-pack@v1
-      with:
-        path: ./Plugin/bin/${{ matrix.configuration }}/net8.0-windows
           
     - name: Upload plugin
       if: matrix.configuration == 'Release'
       uses: actions/upload-artifact@v4
       with:
         name: com.openbyte.audiodeviceswitcher.streamDeckPlugin
-        path: ./AudioDeviceSwitcher/Plugin/bin/${{ matrix.configuration }}
