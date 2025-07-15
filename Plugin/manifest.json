@@ -6,7 +6,7 @@
   "Icon": "Images/volume",
   "URL": "https://github.com/OpenByteDev",
   "Version": "0.1",
-  "Category": "Audio",
+  "Category": "Audio Device Switcher",
   "CategoryIcon": "Images/tune",
   "CodePath": "Plugin.exe",
   "Actions": [
@@ -84,7 +84,7 @@
     }
   ],
   "Software": {
-    "MinimumVersion": "4.1"
+    "MinimumVersion": "6.4"
   },
   "OS": [
     {
