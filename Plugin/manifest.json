@@ -6,7 +6,7 @@
   "Description": "Lets you quickly switch between multiple audio input or output devices.",
   "Icon": "Images/volume",
   "URL": "https://github.com/OpenByteDev",
-  "Version": "0.1",
+  "Version": "0.1.0",
   "Category": "Audio Device Switcher",
   "CategoryIcon": "Images/volume",
   "CodePath": "Plugin.exe",
